@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Avaleht{% endblock %}
+{% block content %}
+<h1 class="mb-4">Tere tulemast Auto_Finants platvormile!</h1>
+
+{% if user.is_authenticated %}
+  <p>Tere, <strong>{{ user.username }}</strong>! Sa saad nüüd üles laadida oma kuludokumendid ning lasta AI-l neid analüüsida.</p>
+  <a href="{% url 'upload' %}" class="btn btn-primary mt-3">Lae üles dokument</a>
+{% else %}
+  <p>Palun <a href="{% url 'login' %}">logi sisse</a> või <a href="{% url 'signup' %}">loo konto</a>, et kasutada Auto_Finants teenuseid.</p>
+{% endif %}
+{% endblock %}

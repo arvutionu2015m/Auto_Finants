@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Minu analüüsid{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">🧾 Minu analüüsid</h2>
+
+{% if analyses %}
+  <div class="accordion" id="analysisAccordion">
+    {% for item in analyses %}
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false"
+                  aria-controls="collapse{{ forloop.counter }}">
+            📂 {{ item.document.file.name|cut:"uploads/" }} ({{ item.created_at|date:"Y-m-d H:i" }})
+          </button>
+        </h2>
+        <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse"
+             aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#analysisAccordion">
+          <div class="accordion-body white-space-pre-line">
+            {{ item.result_text }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="alert alert-info">Sul ei ole veel ühtegi analüüsi.</div>
+{% endif %}
+{% endblock %}

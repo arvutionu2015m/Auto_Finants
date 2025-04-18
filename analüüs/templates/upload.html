@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Lae üles kuludokument{% endblock %}
+{% block content %}
+<h2 class="mb-4">Lae üles kuludokument</h2>
+
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">Lae üles ja analüüsi</button>
+</form>
+
+{% if analysis %}
+  <hr>
+  <h4 class="mt-5">📊 OpenAI analüüs:</h4>
+  <div class="alert alert-info white-space-pre-line mt-3">
+    {{ analysis }}
+    <style>
+      .white-space-pre-line {white-space: pre-line;}
+      </style>
+  </div>
+{% endif %}
+{% endblock %}
