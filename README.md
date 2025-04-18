@@ -1,5 +1,3 @@
-# 📘 **Projekti resümee: Auto_Finants**
-
 **Eesmärk:**  
 *Auto_Finants* on nutikas Django-põhine veebirakendus, mis võimaldab kasutajatel üles laadida oma kuludokumente (nt CSV-vormis pangaväljavõtteid), ning kasutab **OpenAI GPT-4** API-t, et:
 - tuvastada kulumustreid,
